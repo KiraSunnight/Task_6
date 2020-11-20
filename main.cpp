@@ -4,12 +4,15 @@ using namespace std;
 
 double my_pow(double a, unsigned int b)
 {
-    double pow = a;
-    for (int i = 1; i < b; i++)
+    if(b == 0)
     {
-        a *= pow;
+       return 1;
     }
-    return a;
+    if(b % 2 == 0)
+    {
+       return my_pow(a * a, b / 2);
+    }
+       return a * my_pow(a, b - 1);
 }
 
 int main()
